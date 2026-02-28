@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
-import heroCruise from "@/assets/hero-cruise.jpg";
+import { motion } from "framer-motion";
+import ScrollReveal from "@/components/ScrollReveal";
 import heroBeach from "@/assets/hero-beach.jpg";
 
 const offersData = [
@@ -12,23 +13,26 @@ const offersData = [
   { title: "Last Minute Deals", discount: "Up to 50%", desc: "Grab unbelievable discounts on departures within the next 7 days.", validity: "Limited availability", color: "from-accent/80 to-primary/80" },
 ];
 
-const Offers = () => {
-  return (
-    <div>
-      <section className="relative h-72 md:h-96 flex items-center justify-center">
-        <img src={heroBeach} alt="Offers" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 gradient-overlay" />
-        <div className="relative z-10 text-center animate-fade-slide">
-          <p className="text-secondary font-heading text-sm uppercase tracking-[0.3em] mb-2">Save Big</p>
-          <h1 className="text-4xl md:text-6xl font-heading font-bold text-primary-foreground">Exclusive Offers</h1>
-        </div>
-      </section>
+const Offers = () => (
+  <div>
+    <section className="relative h-72 md:h-96 flex items-center justify-center overflow-hidden">
+      <motion.img initial={{ scale: 1.1 }} animate={{ scale: 1 }} transition={{ duration: 1.5 }} src={heroBeach} alt="Offers" className="absolute inset-0 w-full h-full object-cover" />
+      <div className="absolute inset-0 gradient-overlay" />
+      <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="relative z-10 text-center">
+        <p className="text-secondary font-heading text-sm uppercase tracking-[0.3em] mb-2">Save Big</p>
+        <h1 className="text-4xl md:text-6xl font-heading font-bold text-primary-foreground">Exclusive Offers</h1>
+      </motion.div>
+    </section>
 
-      <section className="section-padding">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {offersData.map((offer, i) => (
-              <div key={i} className={`relative rounded-2xl overflow-hidden bg-gradient-to-br ${offer.color} p-8 text-primary-foreground group hover:scale-[1.02] transition-transform duration-300`}>
+    <section className="section-padding">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {offersData.map((offer, i) => (
+            <ScrollReveal key={i} variant="scaleUp" delay={i * 0.1}>
+              <motion.div
+                whileHover={{ scale: 1.03, y: -5 }}
+                className={`relative rounded-2xl overflow-hidden bg-gradient-to-br ${offer.color} p-8 text-primary-foreground h-full`}
+              >
                 <div className="ribbon">Limited Time</div>
                 <div className="pt-8">
                   <p className="font-heading font-bold text-5xl mb-3">{offer.discount}</p>
@@ -39,13 +43,13 @@ const Offers = () => {
                     Grab Now <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
-              </div>
-            ))}
-          </div>
+              </motion.div>
+            </ScrollReveal>
+          ))}
         </div>
-      </section>
-    </div>
-  );
-};
+      </div>
+    </section>
+  </div>
+);
 
 export default Offers;
