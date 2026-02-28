@@ -1,96 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 17%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 17%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 17%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 322 64% 34%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 342 76% 86%;
+    --secondary-foreground: 322 64% 34%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 97%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 32 93% 54%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --success: 145 63% 49%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 322 64% 34%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 322 64% 34%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 342 76% 86%;
+    --sidebar-accent-foreground: 322 64% 34%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 322 64% 34%;
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Custom tokens */
+    --hero-gradient: linear-gradient(135deg, hsla(322, 64%, 34%, 0.85) 0%, hsla(322, 64%, 34%, 0.3) 50%, transparent 100%);
+    --hero-gradient-alt: linear-gradient(135deg, hsla(322, 64%, 34%, 0.9) 0%, hsla(32, 93%, 54%, 0.4) 100%);
+    --card-shadow: 0 10px 40px -10px hsla(322, 64%, 34%, 0.15);
+    --card-shadow-hover: 0 20px 40px -10px hsla(0, 0%, 0%, 0.15);
+    --nav-shadow: 0 2px 20px hsla(0, 0%, 0%, 0.08);
+    --glow-accent: 0 0 30px hsla(32, 93%, 54%, 0.4);
+    --footer-bg: 0 0% 12%;
+    --footer-foreground: 0 0% 85%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 322 64% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 342 40% 25%;
+    --secondary-foreground: 342 76% 86%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 32 93% 54%;
+    --accent-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 322 64% 45%;
   }
 }
 
@@ -100,6 +86,187 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
   }
 }
+
+@layer components {
+  .section-padding {
+    @apply px-4 py-16 md:px-8 lg:px-16 xl:px-24 md:py-20 lg:py-24;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-foreground;
+  }
+
+  .section-subtitle {
+    @apply text-base md:text-lg text-muted-foreground max-w-2xl;
+  }
+
+  .card-travel {
+    @apply bg-card rounded-xl overflow-hidden transition-all duration-500;
+    box-shadow: var(--card-shadow);
+  }
+
+  .card-travel:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-heading font-semibold text-sm uppercase tracking-widest rounded-lg transition-all duration-300;
+  }
+
+  .btn-primary:hover {
+    @apply opacity-90;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px hsla(322, 64%, 34%, 0.35);
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center px-8 py-3 bg-accent text-accent-foreground font-heading font-semibold text-sm uppercase tracking-widest rounded-lg transition-all duration-300;
+  }
+
+  .btn-accent:hover {
+    @apply opacity-90;
+    transform: translateY(-2px);
+    box-shadow: var(--glow-accent);
+  }
+
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center px-8 py-3 border-2 border-primary-foreground text-primary-foreground font-heading font-semibold text-sm uppercase tracking-widest rounded-lg transition-all duration-300;
+  }
+
+  .btn-outline-light:hover {
+    @apply bg-primary-foreground text-primary;
+  }
+
+  .img-zoom {
+    @apply overflow-hidden;
+  }
+
+  .img-zoom img {
+    @apply transition-transform duration-700;
+  }
+
+  .img-zoom:hover img {
+    transform: scale(1.1);
+  }
+
+  .nav-link {
+    @apply relative font-heading text-sm font-medium uppercase tracking-wider transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-bottom-right transition-transform duration-300;
+    transform: scaleX(0);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    transform: scaleX(1);
+    @apply origin-bottom-left;
+  }
+
+  .gradient-overlay {
+    background: var(--hero-gradient);
+  }
+
+  .gradient-overlay-alt {
+    background: var(--hero-gradient-alt);
+  }
+
+  .ribbon {
+    @apply absolute top-4 left-0 bg-accent text-accent-foreground font-heading font-bold text-xs uppercase tracking-wider px-4 py-1.5;
+    clip-path: polygon(0 0, 100% 0, 92% 50%, 100% 100%, 0 100%);
+  }
+
+  .footer-section {
+    background: hsl(var(--footer-bg));
+    color: hsl(var(--footer-foreground));
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Animations */
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-glow {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fade-slide {
+  animation: fadeSlide 1.2s ease forwards;
+}
+
+.animate-fade-slide-delay {
+  animation: fadeSlide 1.2s ease 0.3s forwards;
+  opacity: 0;
+}
+
+.animate-fade-slide-delay-2 {
+  animation: fadeSlide 1.2s ease 0.6s forwards;
+  opacity: 0;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Scroll-triggered animation helper via intersection observer would need JS, 
+   so we use animation-delay staggering instead */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
